@@ -1,0 +1,74 @@
+{
+    "warrior": [
+        {
+            "name": "Chłop",
+            "icon" : "GiFarmer"
+        }, 
+        {
+            "name": "Miecznik",
+            "icon" : "GiSwordman"
+        }, 
+        {
+            "name": "Rycerz",
+            "icon" : "GiClosedBarbute"
+        }, 
+        {
+            "name": "Mistrz miecza",
+            "icon" : "GiSwordsPower"
+        }
+    ],
+    "ranger": [
+        {
+            "name": "Procarz",
+            "icon" : "GiThrowingBall"
+        }, 
+        {
+            "name": "Łucznik",
+            "icon" : "GiBowman"
+        }, 
+        {
+            "name": "Kusznik",
+            "icon" : "GiCrossbow"
+        }, 
+        {
+            "name": "Strzelec wyborowy",
+            "icon" : "GiLightningBow"
+        }
+    ],
+    "mage": [
+        {
+            "name": "Druid",
+            "icon" : "GiEcology"
+        }, 
+        {
+            "name": "Magik",
+            "icon" : "GiWizardStaff"
+        }, 
+        {
+            "name": "Czarodziej",
+            "icon" : "FaHatWizard"
+        }, 
+        {
+            "name": "Czarnoksiężnik",
+            "icon" : "GiRobe"
+        }
+    ],
+    "heavy": [
+        {
+            "name": "Kolos",
+            "icon" : "GiMuscleUp"
+        }, 
+        {
+            "name": "Zbrojny",
+            "icon" : "GiLamellar"
+        }, 
+        {
+            "name": "Kawalerzysta",
+            "icon" : "GiMountedKnight"
+        }, 
+        {
+            "name": "Lord",
+            "icon" : "GiOverlord"
+        }
+    ]
+}
