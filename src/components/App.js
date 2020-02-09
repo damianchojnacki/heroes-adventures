@@ -4,11 +4,11 @@ import Sidebar from "./Sidebar";
 
 function App() {
   return (
-      <main className="xl:flex xl:h-screen">
-          <div className="xl:w-2/3 xl:h-full relative">
+      <main className="lg:flex lg:h-screen">
+          <div className="lg:w-3/5 lg:h-full xl:w-2/3 relative">
               <Main/>
           </div>
-          <aside className="xl:w-1/3 xl:h-full bg-gray-200 shadow-2xl pt-8 relative">
+          <aside className="lg:w-2/5 lg:h-full xl:w-1/3 bg-gray-200 shadow-2xl pt-8 relative">
               <Sidebar/>
           </aside>
       </main>

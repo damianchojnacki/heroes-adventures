@@ -53,10 +53,24 @@ class HeroesService {
         return this.getHero("heavy");
     }
 
+    static getPreviousStats(hero){
+        return JSON.parse(localStorage.getItem(`${Hero.getRoleById(hero.id)}PreviousStats`));
+    }
+
+    static removePreviousStats(hero){
+        return localStorage.removeItem(`${Hero.getRoleById(hero.id)}PreviousStats`);
+    }
+
     static upgrade(hero){
         const newHero = Hero.upgrade(hero);
 
         const actualGold = GoldService.sub(hero.upgradeCost);
+
+        localStorage.setItem(`${Hero.getRoleById(hero.id)}PreviousStats`, JSON.stringify({
+            health: hero.health,
+            strength: hero.strength,
+            defense: hero.defense, 
+        }));
 
         localStorage.setItem(Hero.getRoleById(hero.id), JSON.stringify(newHero));
 
