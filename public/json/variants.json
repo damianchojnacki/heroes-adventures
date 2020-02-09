@@ -46,7 +46,7 @@
         }, 
         {
             "name": "Czarodziej",
-            "icon" : "FaHatWizard"
+            "icon" : "GiCrystalWand"
         }, 
         {
             "name": "Czarnoksiężnik",
@@ -68,7 +68,7 @@
         }, 
         {
             "name": "Lord",
-            "icon" : "GiOverlord"
+            "icon" : "GiOverlordHelm"
         }
     ]
 }

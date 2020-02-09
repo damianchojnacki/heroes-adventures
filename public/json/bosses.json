@@ -1,0 +1,52 @@
+[
+    {
+        "id": 1,
+        "name": "Zombie",
+        "icon" : "GiShamblingZombie"
+    },
+    {
+        "id": 2,
+        "name": "Troll",
+        "icon" : "GiTroll"
+    },
+    {
+        "id": 3,
+        "name": "Jaszczur",
+        "icon" : "GiTroglodyte"
+    },
+    {
+        "id": 4,
+        "name": "Ork",
+        "icon" : "GiOrcHead"
+    },
+    {
+        "id": 5,
+        "name": "Wampir",
+        "icon" : "GiVampireDracula"
+    },
+    {
+        "id": 6,
+        "name": "Wiklołak",
+        "icon" : "GiWerewolf"
+    },
+    {
+        "id": 7,
+        "name": "Kamienny golem",
+        "icon" : "GiIceGolem"
+    },
+    {
+        "id": 8,
+        "name": "Minotaur",
+        "icon" : "GiMinotaur"
+    },
+    {
+        "id": 9,
+        "name": "Ifryt",
+        "icon" : "GiIfrit"
+    },
+    {
+        "id": 10,
+        "name": "Smok",
+        "icon" : "GiSpikedDragonHead"
+    }
+]
