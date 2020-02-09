@@ -1,9 +1,8 @@
-import Hero from "./Hero";
 import Axios from "axios";
-import GoldService from "./GoldService";
 import Monster from "./Monster";
+import GoldService from "./GoldService";
 
-class FightService {
+class MonsterService {
    static async getBoss(){
        !localStorage.getItem("monster") && localStorage.setItem("monster", 1);
 
@@ -16,6 +15,14 @@ class FightService {
            variant: variants.data[localStorage.getItem("monster") - 1]
        }
    }
+
+   static async next(){
+       const current = await this.getBoss();
+
+       GoldService.add(Math.round(parseInt(current.health) / 10 + parseInt(current.strength) * 2));
+
+       localStorage.setItem("monster", parseInt(localStorage.getItem("monster")) + 1);
+   }
 }
 
-export default FightService;
+export default MonsterService;

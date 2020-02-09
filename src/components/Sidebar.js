@@ -4,38 +4,15 @@ import Hero from './Hero';
 import GoldService from "../GoldService";
 import {FaCoins} from "react-icons/fa";
 
-function Sidebar() {
-    const [heroes, setHeroes] = useState([]);
-    const [gold, setGold] = useState(0);
-
-    useEffect(() => {
-        getHeroes();
-    }, []);
-
-    async function getHeroes() {
-        const heroes = await HeroesService.all();
-
-        setHeroes(heroes);
-
-        const gold = GoldService.get();
-
-        setGold(gold);
-    }
-
-    function upgrade(hero) {
-        HeroesService.upgrade(hero);
-
-        getHeroes();
-    }
-
+function Sidebar(props) {
     return (
         <>
-            <div className="absolute top-0 bg-yellow-400 px-3 py-1 flex items-center rounded-b-lg shadow-md text-lg" style={{left: "50%", transform: "translateX(-50%)"}}>
+            <div className="absolute top-0 bg-yellow-400 px-5 py-1 flex items-center rounded-b-lg shadow-md text-lg" style={{left: "50%", transform: "translateX(-50%)"}}>
               <FaCoins/>
-              <span className="pl-1">{gold}</span>
+              <span className="pl-1">{props.gold}</span>
             </div>
-            {heroes.map(hero =>
-                <Hero data={hero} key={hero.id} upgrade={upgrade} gold={gold}/>
+            {props.heroes.map(hero =>
+                <Hero data={hero} key={hero.id} upgrade={props.upgrade} gold={props.gold}/>
             )}
         </>
     );

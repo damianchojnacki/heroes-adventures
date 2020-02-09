@@ -14,7 +14,7 @@ class GoldService{
     static add(value){
         const actualMoney = this.get();
 
-        localStorage.setItem("gold", actualMoney + value);
+        localStorage.setItem("gold", parseInt(actualMoney) + value);
 
         return localStorage.getItem("gold");
     }
@@ -22,7 +22,7 @@ class GoldService{
     static sub(value){
         const actualMoney = this.get();
 
-        localStorage.setItem("gold", actualMoney - value);
+        localStorage.setItem("gold", parseInt(actualMoney) - value);
 
         return localStorage.getItem("gold");
     }
