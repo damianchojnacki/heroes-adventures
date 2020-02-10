@@ -1,28 +1,36 @@
-import Axios from "axios";
-import Monster from "./Monster";
 import GoldService from "./GoldService";
+import bosses from './json/bosses';
 
 class MonsterService {
-   static async getBoss(){
-       !localStorage.getItem("monster") && localStorage.setItem("monster", 1);
+    static getStats(level) {
+        return {
+            health: 160 * level + 200,
+            strength: 18 * level,
+        }
+    }
 
-       const stats = Monster.getStats(localStorage.getItem("monster"));
+    static getBoss() {
+        !localStorage.getItem("monster") && localStorage.setItem("monster", 1);
 
-       const variants = await Axios.get("json/bosses.json");
+        const stats = this.getStats(localStorage.getItem("monster"));
 
-       return {
-           ...stats,
-           variant: variants.data[localStorage.getItem("monster") - 1]
-       }
-   }
+        return {
+            ...stats,
+            variant: bosses[localStorage.getItem("monster") - 1]
+        }
+    }
 
-   static async next(){
-       const current = await this.getBoss();
+    static calculateEarnings(monster){
+        return Math.round(parseInt(monster.health) / 10 + parseInt(monster.strength) * 2);
+    }
 
-       GoldService.add(Math.round(parseInt(current.health) / 10 + parseInt(current.strength) * 2));
+    static async next() {
+        const current = this.getBoss();
 
-       localStorage.setItem("monster", parseInt(localStorage.getItem("monster")) + 1);
-   }
+        GoldService.add(this.calculateEarnings(current));
+
+        localStorage.setItem("monster", parseInt(localStorage.getItem("monster")) + 1);
+    }
 }
 
 export default MonsterService;

@@ -1,15 +1,12 @@
 import React from 'react';
 import * as Icons from 'react-icons/gi';
 import {FaFistRaised, FaHeart, FaShieldAlt} from 'react-icons/fa';
-import HeroesService from '../HeroesService';
 import CountUp from 'react-countup';
 
 function Hero(props) {
     const hero = props.data;
 
     const Icon = Icons[hero.variant.icon];
-
-    const previousStats = HeroesService.getPreviousStats(hero) ? HeroesService.getPreviousStats(hero) : hero;
 
     const percentOfHealth = hero.currentHealth && (hero.currentHealth * 100 / hero.health);
 
@@ -36,9 +33,8 @@ function Hero(props) {
                         <span className="pl-1">
                           {hero.currentHealth ??
                               <CountUp
-                                  start={previousStats.health}
+                                  start={hero.previous ? hero.previous.health : hero.health}
                                   end={hero.health}
-                                  onEnd={() => HeroesService.removePreviousStats(hero)}
                               />
                           }
                       </span>
@@ -47,9 +43,8 @@ function Hero(props) {
                         <FaFistRaised/>
                         <span className="pl-1">
                         <CountUp
-                            start={previousStats.strength}
+                            start={hero.previous ? hero.previous.strength : hero.strength}
                             end={hero.strength}
-                            onEnd={() => HeroesService.removePreviousStats(hero)}
                         />
                       </span>
                     </div>
@@ -58,9 +53,8 @@ function Hero(props) {
                         <span className="pl-1">
                         {hero.currentDefense ??
                             <CountUp
-                                start={previousStats.defense}
+                                start={hero.previous ? hero.previous.defense : hero.defense}
                                 end={hero.defense}
-                                onEnd={() => HeroesService.removePreviousStats(hero)}
                             />
                         }
                       </span>

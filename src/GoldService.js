@@ -2,13 +2,13 @@ class GoldService{
     static get(){
         !localStorage.getItem("gold") && localStorage.setItem("gold", 0);
 
-        return localStorage.getItem("gold");
+        return parseInt(localStorage.getItem("gold"));
     }
 
     static set(value){
         localStorage.setItem("gold", value);
 
-        return localStorage.getItem("gold");
+        return parseInt(localStorage.getItem("gold"));
     }
 
     static add(value){
@@ -16,7 +16,7 @@ class GoldService{
 
         localStorage.setItem("gold", parseInt(actualMoney) + value);
 
-        return localStorage.getItem("gold");
+        return parseInt(localStorage.getItem("gold"));
     }
 
     static sub(value){
@@ -24,7 +24,7 @@ class GoldService{
 
         localStorage.setItem("gold", parseInt(actualMoney) - value);
 
-        return localStorage.getItem("gold");
+        return parseInt(localStorage.getItem("gold"));
     }
 }
 

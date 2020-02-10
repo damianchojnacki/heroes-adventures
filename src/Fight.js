@@ -1,6 +1,3 @@
-import Monster from "./Monster";
-import Hero from "./Hero";
-
 class Fight {
     heroes = {};
     monster = {};

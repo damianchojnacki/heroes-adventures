@@ -1,7 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import HeroesService from '../HeroesService';
+import React from 'react';
 import Hero from './Hero';
-import GoldService from "../GoldService";
 import {FaCoins} from "react-icons/fa";
 
 function Sidebar(props) {

@@ -19,39 +19,17 @@ function Main(props) {
                     </div>
                     <div className="text-center">
                         <h2 className="text-2xl">Choose a fighter</h2>
-                        <button
-                            className={props.fight.heroes[0].currentHealth > 0 ? aliveClasses : deadClasses}
-                            onClick={() => props.hit(0)}
-                            style={{transform: "scaleX(-1)"}}
-                            disabled={props.fight.heroes[0].currentHealth <= 0}
-                        >
-                            <GiBroadsword/>
-                        </button>
-
-                        <button
-                            className={props.fight.heroes[1].currentHealth > 0 ? aliveClasses : deadClasses}
-                            onClick={() => props.hit(1)}
-                            style={{transform: "scaleX(-1)"}}
-                            disabled={props.fight.heroes[1].currentHealth <= 0}
-                        >
-                            <GiHighShot/>
-                        </button>
-
-                        <button className={props.fight.heroes[2].currentHealth > 0 ? aliveClasses : deadClasses}
-                                onClick={() => props.hit(2)}
+                        {[<GiBroadsword/>, <GiHighShot/>, <GiMagicSwirl/>, <GiBangingGavel/>].map((icon, index) =>
+                            <button
+                                key={index}
+                                className={props.fight.heroes[index].currentHealth > 0 ? aliveClasses : deadClasses}
+                                onClick={() => props.hit(index)}
                                 style={{transform: "scaleX(-1)"}}
-                                disabled={props.fight.heroes[2].currentHealth <= 0}
-                        >
-                            <GiMagicSwirl/>
-                        </button>
-
-                        <button className={props.fight.heroes[3].currentHealth > 0 ? aliveClasses : deadClasses}
-                                onClick={() => props.hit(3)}
-                                style={{transform: "scaleX(-1)"}}
-                                disabled={props.fight.heroes[3].currentHealth <= 0}
-                        >
-                            <GiBangingGavel/>
-                        </button>
+                                disabled={props.fight.heroes[index].currentHealth <= 0}
+                            >
+                                {icon}
+                            </button>
+                        )}
                     </div>
                 </>
                 :

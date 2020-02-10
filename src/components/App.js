@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import Main from "./Main";
 import Sidebar from "./Sidebar";
-import HeroesService from "../HeroesService";
+import HeroService from "../HeroService";
 import GoldService from "../GoldService";
 import MonsterService from "../MonsterService";
 import Fight from "../Fight";
+import update from 'react-addons-update';
 
 function App() {
     const [heroes, setHeroes] = useState([]);
@@ -14,8 +15,8 @@ function App() {
     const [toggle, setToggle] = useState(false);
 
     useEffect(() => {
-        (async function () {
-            const heroes = await HeroesService.all();
+        (function () {
+            const heroes = HeroService.all();
 
             setHeroes(heroes);
 
@@ -25,17 +26,17 @@ function App() {
         })();
     }, []);
 
-    async function hit(id){
+    function hit(id){
         if(!fight[round].end) {
             setFight([...fight, fight[round].hit(id)]);
             setRound(round + 1);
             if(fight[round].end) hit(0);
         } else{
-            const heroes = await HeroesService.all();
+            const heroes = HeroService.all();
 
             setHeroes(heroes);
 
-            if(fight[round].won) await MonsterService.next();
+            if(fight[round].won) MonsterService.next();
 
             const gold = GoldService.get();
 
@@ -46,21 +47,19 @@ function App() {
         }
     }
 
-    async function upgrade(hero) {
-        HeroesService.upgrade(hero);
+    function upgrade(hero) {
+        const afterUpgrade = HeroService.upgrade(hero);
 
-        const heroes = await HeroesService.all();
+        setHeroes(update(heroes, {
+            [hero.id - 1]: {$set: afterUpgrade.hero},
+        }));
 
-        setHeroes(heroes);
-
-        const gold = GoldService.get();
-
-        setGold(gold);
+        setGold(afterUpgrade.gold);
     }
 
-    async function nextFight(){
-        const monster = await MonsterService.getBoss();
-        const heroes = await HeroesService.all();
+    function nextFight(){
+        const monster = MonsterService.getBoss();
+        const heroes = HeroService.all();
 
         setFight([...fight, new Fight(heroes, monster)]);
     }
@@ -112,7 +111,7 @@ function App() {
             <aside className="lg:w-2/5 lg:h-full xl:w-1/3 bg-gray-200 shadow-2xl pt-8 relative">
                 <Sidebar heroes={fight.length ? fight[round].heroes : heroes} gold={gold} upgrade={upgrade}/>
             </aside>
-            <footer className="absolute bottom-0 left-0 m-5">
+            <footer className="fixed bottom-0 left-0 m-5">
                 <button className="px-4 py-2 bg-gray-200 hover:bg-gray-300 shadow-md rounded-lg" onClick={() => setToggle(!toggle)}>Zasady gry</button>
             </footer>
         </main>
