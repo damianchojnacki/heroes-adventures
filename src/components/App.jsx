@@ -63,6 +63,7 @@ function App() {
 
     return (
         <main className="lg:flex lg:h-screen">
+            <span className="absolute m-2 text-gray-500 text-sm">alpha release</span>
             <div
                 className="absolute z-30 px-8 md:px-24 py-12 bg-gray-400 z-10 md:rounded-lg shadow-lg text-justify w-full md:w-3/4 lg:w-2/3 inset-0 md:inset-1/2 h-fit opacity-9 md:translate-1/2"
                 style={{display: toggle ? "block" : "none",}}
