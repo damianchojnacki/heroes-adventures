@@ -1,5 +1,6 @@
 import GoldService from "./GoldService";
 import bosses from './json/bosses';
+import Memory from "./Memory";
 
 class MonsterService {
     static getStats(level) {
@@ -10,13 +11,13 @@ class MonsterService {
     }
 
     static getBoss() {
-        !localStorage.getItem("monster") && localStorage.setItem("monster", 1);
+        !Memory.exist('boss') && Memory.save("boss", 1);
 
-        const stats = this.getStats(localStorage.getItem("monster"));
+        const stats = this.getStats(Memory.get("boss"));
 
         return {
             ...stats,
-            variant: bosses[localStorage.getItem("monster") - 1]
+            variant: bosses[Memory.get("boss") - 1]
         }
     }
 
@@ -24,12 +25,12 @@ class MonsterService {
         return Math.round(parseInt(monster.health) / 10 + parseInt(monster.strength) * 2);
     }
 
-    static async next() {
+    static next() {
         const current = this.getBoss();
 
         GoldService.add(this.calculateEarnings(current));
 
-        localStorage.setItem("monster", parseInt(localStorage.getItem("monster")) + 1);
+        Memory.increment("boss");
     }
 }
 

@@ -2,6 +2,7 @@ import GoldService from "./GoldService";
 import variants from './json/variants';
 import costs from './json/costs';
 import heroes from './json/heroes';
+import Memory from "./Memory";
 
 class HeroService {
     static all(){
@@ -9,12 +10,12 @@ class HeroService {
     }
 
     static get(role){
-        if(!localStorage.getItem(role)) localStorage.setItem(role, JSON.stringify(heroes[role]));
+        !Memory.exist(role) && Memory.save(role, heroes[role]);
 
-        const hero = JSON.parse(localStorage.getItem(role));
+        const hero = Memory.get(role);
 
         return {
-            ...JSON.parse(localStorage.getItem(role)),
+            ...hero,
             "variant": variants[role][hero.level - 1],
             "upgradeCost": costs[role][hero.level - 1]
         };
@@ -27,7 +28,7 @@ class HeroService {
 
         const actualGold = GoldService.sub(hero.upgradeCost);
 
-        localStorage.setItem(this.getRoleById(hero.id), JSON.stringify(newHero));
+        Memory.save(this.getRoleById(hero.id), newHero);
 
         return {
             hero: {

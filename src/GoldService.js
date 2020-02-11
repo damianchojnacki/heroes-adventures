@@ -1,30 +1,32 @@
+import Memory from './Memory';
+
 class GoldService{
     static get(){
-        !localStorage.getItem("gold") && localStorage.setItem("gold", 0);
+        !Memory.exist("gold") && Memory.save("gold", 0);
 
-        return parseInt(localStorage.getItem("gold"));
+        return Memory.get("gold");
     }
 
     static set(value){
-        localStorage.setItem("gold", value);
+        Memory.save("gold", value);
 
-        return parseInt(localStorage.getItem("gold"));
+        return Memory.get("gold");
     }
 
     static add(value){
         const actualMoney = this.get();
 
-        localStorage.setItem("gold", parseInt(actualMoney) + value);
+        Memory.save("gold", actualMoney + value);
 
-        return parseInt(localStorage.getItem("gold"));
+        return Memory.get("gold");
     }
 
     static sub(value){
         const actualMoney = this.get();
 
-        localStorage.setItem("gold", parseInt(actualMoney) - value);
+        Memory.save("gold", actualMoney - value)
 
-        return parseInt(localStorage.getItem("gold"));
+        return Memory.get("gold");
     }
 }
 
