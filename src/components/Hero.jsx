@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import * as Icons from 'react-icons/gi';
 import {FaFistRaised, FaHeart, FaShieldAlt} from 'react-icons/fa';
 import CountUp from 'react-countup';
+import 'animate.css';
 
 function Hero(props) {
     const hero = props.data;
@@ -10,17 +11,25 @@ function Hero(props) {
 
     const percentOfHealth = hero.currentHealth && (hero.currentHealth * 100 / hero.health);
 
+    const [animation, setAnimation] = useState("");
+
+    useEffect(() => {
+        setAnimation("bg-red-300");
+
+        setTimeout(() => setAnimation(""), 500);
+    }, [hero && hero.currentHealth]);
+
     return (
         <div className="relative mx-4">
             {!hero.currentHealth && props.gold >= hero.upgradeCost &&
                 <div
-                    className="absolute top-0 w-full h-full bg-gray-800 hover:bg-gray-900 opacity-75 flex justify-center items-center text-yellow-500 cursor-pointer uppercase font-bold tracking-widest"
+                    className="absolute z-10 top-0 w-full h-full bg-gray-800 hover:bg-gray-900 opacity-75 flex justify-center items-center text-yellow-500 cursor-pointer uppercase font-bold tracking-widest animated zoomIn"
                     onClick={() => props.upgrade(hero)}
                 >
                     Awansuj
                 </div>
             }
-            <div className="my-4 my-12 px-8 py-4 rounded shadow-md bg-white items-center flex flex-wrap lg:flex-no-wrap justify-center lg:justify-between">
+            <div className={`my-4 my-12 px-8 py-4 rounded shadow-md bg-white items-center flex flex-wrap lg:flex-no-wrap justify-center lg:justify-between animated zoomIn animate ${animation}`}>
                 <span className="text-5xl mr-8">
                     <Icon/>
                 </span>
@@ -61,10 +70,15 @@ function Hero(props) {
                     </div>
                 </div>
             </div>
-            {hero.currentHealth &&
-                <div className="absolute shadow bg-grey-light overflow-hidden w-full" style={{top: "100%", left: 0, width: "100%"}}>
-                    <div className="bg-red-600 text-xs leading-none py-1 text-center text-white" style={{width: percentOfHealth >= 0 ? percentOfHealth + "%" : "0"}}/>
+            {hero.currentHealth ?
+                <div className="absolute shadow-sm bg-grey-light overflow-hidden w-full" style={{top: "100%", left: 0, width: "100%"}}>
+                    <div 
+                        className="bg-red-600 text-xs leading-none py-1 text-center text-white animate" 
+                        style={{width: percentOfHealth >= 0 ? percentOfHealth + "%" : 0}}
+                    />
                 </div>
+                :
+                null
             }
         </div>
     );

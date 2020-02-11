@@ -3,22 +3,21 @@
   "version": "0.1.0",
   "private": false,
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
+    "animate.css": "^3.7.2",
     "autoprefixer": "^9.7.4",
-    "axios": "^0.19.2",
     "postcss-cli": "^7.1.0",
     "react": "^16.12.0",
     "react-addons-update": "^15.6.2",
     "react-countup": "^4.3.3",
     "react-dom": "^16.12.0",
     "react-icons": "^3.9.0",
-    "react-router-dom": "^5.1.2",
+    "react-particles-js": "^2.7.1",
     "react-scripts": "3.3.1",
-    "tailwindcss": "^1.2.0"
+    "tailwindcss": "^1.2.0",
+    "source-map-explorer": "^2.2.2"
   },
   "scripts": {
+    "analyze": "source-map-explorer './build/static/js/*.js'",
     "build:style": "tailwind build src/styles/index.css -o src/styles/tailwind.css",
     "start": "npm run build:style && react-scripts start",
     "build": "react-scripts build",

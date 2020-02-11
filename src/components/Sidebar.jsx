@@ -1,11 +1,12 @@
 import React from 'react';
 import Hero from './Hero';
 import {FaCoins} from "react-icons/fa";
+import 'animate.css';
 
 function Sidebar(props) {
     return (
         <>
-            <div className="absolute top-0 bg-yellow-400 px-5 py-1 flex items-center rounded-b-lg shadow-md text-lg" style={{left: "50%", transform: "translateX(-50%)"}}>
+            <div className="absolute top-0 bg-yellow-400 px-5 py-1 flex items-center rounded-b-lg shadow-md text-lg animated slideInDown" style={{left: "50%", transform: "translateX(-50%)"}}>
               <FaCoins/>
               <span className="pl-1">{props.gold}</span>
             </div>
