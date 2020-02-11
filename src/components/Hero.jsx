@@ -14,10 +14,10 @@ function Hero(props) {
     const [animation, setAnimation] = useState("");
 
     useEffect(() => {
-        setAnimation("bg-red-300");
+        props.fight && setAnimation("bg-red-300");
 
         setTimeout(() => setAnimation(""), 500);
-    }, [hero && hero.currentHealth]);
+    }, [hero.currentHealth]);
 
     return (
         <div className="relative mx-4">
@@ -29,7 +29,7 @@ function Hero(props) {
                     Awansuj
                 </div>
             }
-            <div className={`my-4 my-12 px-8 py-4 rounded shadow-md bg-white items-center flex flex-wrap lg:flex-no-wrap justify-center lg:justify-between animated zoomIn animate ${animation}`}>
+            <div className={`my-5 md:my-12 px-8 py-4 rounded shadow-md bg-white items-center flex flex-wrap lg:flex-no-wrap justify-center lg:justify-between animated zoomIn animate ${animation} ${hero.currentHealth <= 0 ? "grayscale bg-gray-300" : null}`}>
                 <span className="text-5xl mr-8">
                     <Icon/>
                 </span>
@@ -71,9 +71,9 @@ function Hero(props) {
                 </div>
             </div>
             {hero.currentHealth ?
-                <div className="absolute shadow-sm bg-grey-light overflow-hidden w-full" style={{top: "100%", left: 0, width: "100%"}}>
+                <div className="absolute bg-grey-light overflow-hidden w-full" style={{top: "100%", left: 0, width: "100%"}}>
                     <div 
-                        className="bg-red-600 text-xs leading-none py-1 text-center text-white animate" 
+                        className="bg-red-600 text-xs leading-none py-1 text-center text-white animate"
                         style={{width: percentOfHealth >= 0 ? percentOfHealth + "%" : 0}}
                     />
                 </div>

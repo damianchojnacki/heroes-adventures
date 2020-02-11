@@ -7,3 +7,35 @@
 .animate{
     transition: .5s;
 }
+
+.translate-1\/2{
+    transform: translate(-50%, -50%);
+}
+
+@media (min-width: 1280px) {
+    .lg\:translate-1\/2 {
+        transform: translate(-50%, -50%);
+    }
+}
+
+@media (min-width: 1024px) {
+    .md\:translate-1\/2 {
+        transform: translate(-50%, -50%);
+    }
+}
+
+.flipX{
+    transform: scaleX(-1);
+}
+
+.flipY{
+    transform: scaleY(-1);
+}
+
+.grayscale{
+    filter: grayscale(100%);
+}
+
+.grayscale-1\/2{
+    filter: grayscale(50%);
+}

@@ -7,6 +7,7 @@ import GoldService from "../GoldService";
 import MonsterService from "../MonsterService";
 import Fight from "../Fight";
 import update from 'react-addons-update';
+import {FaQuestionCircle} from 'react-icons/fa';
 
 function App() {
     const [heroes, setHeroes] = useState([]);
@@ -63,15 +64,8 @@ function App() {
     return (
         <main className="lg:flex lg:h-screen">
             <div
-                className="fixed z-30 px-24 py-12 bg-gray-400 z-10 rounded-lg shadow-lg"
-                style={{
-                    display: toggle ? "block" : "none",
-                    top: "50%",
-                    left: "50%",
-                    transform: "translate(-50%, -50%)",
-                    width: "66%",
-                    opacity: ".9"
-                }}
+                className="absolute z-30 px-8 md:px-24 py-12 bg-gray-400 z-10 md:rounded-lg shadow-lg text-justify w-full md:w-3/4 lg:w-2/3 inset-0 md:inset-1/2 h-fit opacity-9 md:translate-1/2"
+                style={{display: toggle ? "block" : "none",}}
             >
                 <Rules/>
             </div>
@@ -79,10 +73,12 @@ function App() {
                 <Main fight={fight[round]} previousFight={fight.length > 1 && fight[round - 1]} hit={hit} nextFight={nextFight}/>
             </div>
             <aside className="lg:w-2/5 lg:h-full xl:w-1/3 bg-gray-200 shadow-2xl pt-8 relative z-20">
-                <Sidebar heroes={fight.length ? fight[round].heroes : heroes} gold={gold} upgrade={upgrade}/>
+                <Sidebar heroes={fight.length ? fight[round].heroes : heroes} gold={gold} upgrade={upgrade} fight={fight.length > 1}/>
             </aside>
             <footer className="fixed z-40 bottom-0 left-0 m-5">
-                <button className="px-4 py-2 bg-gray-200 hover:bg-gray-300 shadow-md rounded-lg" onClick={() => setToggle(!toggle)}>Zasady gry</button>
+                <button className="text-2xl hover:text-gray-700" onClick={() => setToggle(!toggle)}>
+                    <FaQuestionCircle/>
+                </button>
             </footer>
         </main>
     );

@@ -17,11 +17,11 @@ function Monster(props) {
 
     return (
         <>
-            <h1 className="pb-8 text-5xl">{props.monster && props.monster.variant.name}</h1>
+            <h1 className="mb-5 md:mb-8 text-3xl md:text-5xl">{props.monster && props.monster.variant.name}</h1>
             <Icon size="33vh" className={animation} />
-            <div className="z-20 shadow bg-gray-100 overflow-hidden w-full">
+            <div className="z-20 m-6 md:m-8 shadow bg-gray-100 overflow-hidden w-full">
                 <div 
-                    className="bg-red-600 text-xs leading-none py-1 text-center text-white animate" 
+                    className="bg-red-600 py-1 md:py-2 text-sm md:text-base leading-none text-center text-white animate"
                     style={{width: percentOfHealth >= 0 ? percentOfHealth + "%" : 0}}
                 >
                     {props.monster.currentHealth}
