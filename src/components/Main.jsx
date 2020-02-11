@@ -49,7 +49,7 @@ function Main(props) {
                             <Monster monster={props.fight.monster} previousHealth={props.previousFight.monster}/>
                         </div>
                         <div className="z-20 text-center">
-                            <h2 className="hidden md:block text-2xl">Choose an attacker</h2>
+                            <h2 className="hidden md:block text-2xl">Wybierz bohatera</h2>
                             {[<GiBroadsword/>, <GiHighShot/>, <GiMagicSwirl/>, <GiBangingGavel/>].map((icon, index) => 
                                 <AttackIcon {...props} icon={icon} index={index} key={index}/>     
                             )}
