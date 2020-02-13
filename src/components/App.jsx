@@ -10,6 +10,7 @@ function App() {
     return (
         <GameContextProvider>
             <main className="lg:flex lg:h-screen">
+                <span className="absolute m-2 text-gray-500 text-sm">alpha release</span>
                 <div className="lg:w-3/5 lg:h-full xl:w-2/3 relative">
                     <Main />
                 </div>
