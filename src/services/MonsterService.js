@@ -1,12 +1,12 @@
 import GoldService from "./GoldService";
-import bosses from './json/bosses';
-import Memory from "./Memory";
+import bosses from '../json/bosses';
+import Memory from "../helpers/Memory";
 
 class MonsterService {
     static getStats(level) {
         return {
-            health: 160 * level + 200,
-            strength: 18 * level,
+            health: 100 + 40 * (3 * (level + 1)),
+            strength: 12 + (6 * (level + 1)),
         }
     }
 
@@ -17,7 +17,7 @@ class MonsterService {
 
         return {
             ...stats,
-            variant: bosses[Memory.get("boss") - 1]
+            ...bosses[Memory.get("boss") - 1]
         }
     }
 

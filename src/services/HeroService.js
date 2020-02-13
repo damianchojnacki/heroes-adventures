@@ -1,8 +1,8 @@
 import GoldService from "./GoldService";
-import variants from './json/variants';
-import costs from './json/costs';
-import heroes from './json/heroes';
-import Memory from "./Memory";
+import variants from '../json/variants';
+import costs from '../json/costs';
+import heroes from '../json/heroes';
+import Memory from "../helpers/Memory";
 
 class HeroService {
     static all(){
@@ -16,8 +16,8 @@ class HeroService {
 
         return {
             ...hero,
-            "variant": variants[role][hero.level - 1],
-            "upgradeCost": costs[role][hero.level - 1]
+            ...variants[role][hero.level - 1],
+            upgradeCost: costs[role][hero.level - 1]
         };
     }
 
@@ -47,9 +47,9 @@ class HeroService {
         return {
             id: hero.id,
             level: hero.level + 1,
-            health: hero.health * hero.level * 2,
+            health: hero.health * (hero.level + 1),
             strength: hero.strength * hero.level,
-            defense: hero.defense * hero.level / 2,
+            defense: hero.defense * hero.level,
             previous: {
                 health: hero.health,
                 strength: hero.strength,

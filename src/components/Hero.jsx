@@ -4,27 +4,29 @@ import {FaFistRaised, FaHeart, FaShieldAlt} from 'react-icons/fa';
 import CountUp from 'react-countup';
 import 'animate.css';
 
-function Hero(props) {
-    const hero = props.data;
+import {GameContext} from "../GameContext";
 
-    const Icon = Icons[hero.variant.icon];
+function Hero({hero}) {
+    const {state, dispatch} = React.useContext(GameContext);
+
+    const Icon = Icons[hero.icon];
 
     const percentOfHealth = hero.currentHealth && (hero.currentHealth * 100 / hero.health);
 
     const [animation, setAnimation] = useState("");
 
     useEffect(() => {
-        props.fight && setAnimation("bg-red-300");
+        state.fight.heroes && setAnimation("bg-red-300");
 
         setTimeout(() => setAnimation(""), 500);
     }, [hero.currentHealth]);
 
     return (
         <div className="relative mx-4">
-            {!hero.currentHealth && props.gold >= hero.upgradeCost &&
+            {!hero.currentHealth && state.gold >= hero.upgradeCost &&
                 <div
-                    className="absolute z-10 top-0 w-full h-full bg-gray-800 hover:bg-gray-900 opacity-75 flex justify-center items-center text-yellow-500 cursor-pointer uppercase font-bold tracking-widest animated zoomIn"
-                    onClick={() => props.upgrade(hero)}
+                    className="absolute z-10 top-0 w-full h-full bg-gray-800 hover:bg-gray-900 opacity-50 flex justify-center items-center text-yellow-500 cursor-pointer uppercase font-bold tracking-widest animated zoomIn"
+                    onClick={() => dispatch({type: "heroUpgrade", payload: hero})}
                 >
                     Awansuj
                 </div>
@@ -34,7 +36,7 @@ function Hero(props) {
                     <Icon/>
                 </span>
                 <span className="align-middle text-lg">
-                    {hero.variant.name}
+                    {hero.name}
                 </span>
                 <div className="mt-4 lg:mt-0 ml-auto w-full lg:w-1/2 flex justify-around lg:justify-between">
                     <div className="flex items-center p-2 bg-gray-700 text-white rounded">
@@ -74,7 +76,7 @@ function Hero(props) {
                 <div className="absolute bg-grey-light overflow-hidden w-full" style={{top: "100%", left: 0, width: "100%"}}>
                     <div 
                         className="bg-red-600 text-xs leading-none py-1 text-center text-white animate"
-                        style={{width: percentOfHealth >= 0 ? percentOfHealth + "%" : 0}}
+                        style={{width: percentOfHealth > 0 ? percentOfHealth + "%" : 0}}
                     />
                 </div>
                 :

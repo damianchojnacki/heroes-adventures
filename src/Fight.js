@@ -25,7 +25,7 @@ class Fight {
         return hero.currentHealth >= 0;
     }
 
-    hit(id){
+    hit(index){
         let randomHero = 0;
 
         do{
@@ -40,9 +40,9 @@ class Fight {
                 return hero;
             });
 
-            this.heroes[id].currentDefense = 0;
+            this.heroes[index].currentDefense = 0;
 
-            this.monster.currentHealth -= this.calculateHit(this.heroes[id].strength);
+            this.monster.currentHealth -= this.calculateHit(this.heroes[index].strength);
         }
 
         if(this.monster.currentHealth <= 0){
@@ -61,6 +61,8 @@ class Fight {
         }
 
         this.round++;
+
+        console.log(this);
 
         return this.round % 4 === 0 ? this.hit() : this;
     }

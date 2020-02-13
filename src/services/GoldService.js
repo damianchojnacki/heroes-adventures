@@ -1,4 +1,4 @@
-import Memory from './Memory';
+import Memory from '../helpers/Memory';
 
 class GoldService{
     static get(){
