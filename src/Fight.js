@@ -69,8 +69,6 @@ class Fight {
 
         this.round++;
 
-        console.log(this);
-
         return this.round % 4 === 0 ? this.hit() : this;
     }
 }
