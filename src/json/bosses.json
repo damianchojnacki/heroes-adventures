@@ -1,52 +1,122 @@
 [
     {
         "id": 1,
+        "name": "Slime",
+        "icon" : "GiSlime"
+    },
+    {
+        "id": 2,
         "name": "Zombie",
         "icon" : "GiShamblingZombie"
     },
     {
-        "id": 2,
+        "id": 3,
         "name": "Troll",
         "icon" : "GiTroll"
     },
     {
-        "id": 3,
+        "id": 4,
         "name": "Jaszczur",
         "icon" : "GiTroglodyte"
     },
     {
-        "id": 4,
+        "id": 5,
         "name": "Ork",
         "icon" : "GiOrcHead"
     },
     {
-        "id": 5,
+        "id": 6,
+        "name": "Centaur",
+        "icon" : "GiCentaur"
+    },
+    {
+        "id": 7,
         "name": "Wampir",
         "icon" : "GiVampireDracula"
     },
     {
-        "id": 6,
+        "id": 8,
         "name": "Wiklołak",
         "icon" : "GiWerewolf"
     },
     {
-        "id": 7,
+        "id": 9,
+        "name": "Gargulec",
+        "icon" : "GiGargoyle"
+    },
+    {
+        "id": 10,
         "name": "Kamienny golem",
+        "icon" : "GiRockGolem"
+    },
+    {
+        "id": 11,
+        "name": "Lodowy golem",
         "icon" : "GiIceGolem"
     },
     {
-        "id": 8,
+        "id": 12,
         "name": "Minotaur",
         "icon" : "GiMinotaur"
     },
     {
-        "id": 9,
+        "id": 13,
+        "name": "Imp",
+        "icon" : "GiImp"
+    },
+    {
+        "id": 14,
         "name": "Ifryt",
         "icon" : "GiIfrit"
     },
     {
-        "id": 10,
+        "id": 15,
+        "name": "Demon",
+        "icon" : "GiOni"
+    },
+    {
+        "id": 16,
+        "name": "Diaboł",
+        "icon" : "GiDiabloSkull"
+    },
+    {
+        "id": 17,
+        "name": "Wiwerna",
+        "icon" : "GiWyvern"
+    },
+    {
+        "id": 18,
         "name": "Smok",
+        "icon" : "GiDragonHead"
+    },
+    {
+        "id": 19,
+        "name": "Smokowiec",
+        "icon" : "GiDoubleDragon"
+    },
+    {
+        "id": 20,
+        "name": "Hydra",
+        "icon" : "GiHydra"
+    },
+    {
+        "id": 21,
+        "name": "Dragonoid",
         "icon" : "GiSpikedDragonHead"
+    },
+    {
+        "id": 22,
+        "name": "Żniwiarz",
+        "icon" : "GiGrimReaper"
+    },
+    {
+        "id": 23,
+        "name": "Horus",
+        "icon" : "GiHorus"
+    },
+    {
+        "id": 24,
+        "name": "Anubis",
+        "icon" : "GiAnubis"
     }
 ]

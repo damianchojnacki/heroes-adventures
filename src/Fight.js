@@ -4,6 +4,7 @@ class Fight {
     round = 0;
     end = false;
     won = false;
+    lastHit = 0;
 
     constructor(heroes, monster) {
         this.heroes = heroes.map(hero => {
@@ -17,8 +18,14 @@ class Fight {
         this.monster.currentHealth = monster.health;
     }
 
-    calculateHit(strength, defense = 0){
-        return strength - defense;
+    calculateHit(strength, defense = 0, level = this.monster.level){
+        const additionalDamage = Math.random() * (level + 1) * (Math.random() < 0.5 ? -1 : 1);
+
+        const hit = Math.ceil(strength + additionalDamage - defense);
+
+        this.lastHit = (this.round !== 0 && this.round % 4 === 0) ? this.lastHit : hit;
+
+        return hit;
     }
 
     isAlive(hero){
@@ -42,7 +49,7 @@ class Fight {
 
             this.heroes[index].currentDefense = 0;
 
-            this.monster.currentHealth -= this.calculateHit(this.heroes[index].strength);
+            this.monster.currentHealth -= this.calculateHit(this.heroes[index].strength, 0, this.heroes[index].level);
         }
 
         if(this.monster.currentHealth <= 0){

@@ -5,8 +5,9 @@ import Memory from "../helpers/Memory";
 class MonsterService {
     static getStats(level) {
         return {
-            health: 100 + 40 * (3 * (level + 1)),
-            strength: 12 + (6 * (level + 1)),
+            level: level,
+            health: 120 + 30 * (3 * (level + 1)),
+            strength: 12 + (7 * (level + 1)),
         }
     }
 
@@ -22,7 +23,7 @@ class MonsterService {
     }
 
     static calculateEarnings(monster){
-        return Math.round(parseInt(monster.health) / 10 + parseInt(monster.strength) * 2);
+        return Math.round(parseInt(monster.health) / 9 + parseInt(monster.strength) * 3);
     }
 
     static next() {

@@ -26,7 +26,7 @@ function AttackIcon(props){
     return (
         <div className="inline-block md:block relative mx-6 my-2 md:my-5 md:mx-auto text-6xl md:text-5xl">
             <button
-                className={`bg-gray-200 p-2 pb-3 rounded shadow flipX animated ${dead ? "hover:bg-gray-300" : "grayscale text-gray-400"}`}
+                className={`bg-gray-200 p-2 pb-3 md:pb-2 rounded shadow flipX animated ${dead ? "hover:bg-gray-300" : "grayscale text-gray-400"}`}
                 onClick={() => hit()}
                 disabled={!dead}
             >

@@ -23,7 +23,7 @@ function Hero({hero}) {
 
     return (
         <div className="relative mx-4">
-            {!hero.currentHealth && state.gold >= hero.upgradeCost &&
+            {!state.fight.heroes && state.gold >= hero.upgradeCost &&
                 <div
                     className="absolute z-10 top-0 w-full h-full bg-gray-800 hover:bg-gray-900 opacity-50 flex justify-center items-center text-yellow-500 cursor-pointer uppercase font-bold tracking-widest animated zoomIn"
                     onClick={() => dispatch({type: "heroUpgrade", payload: hero})}
