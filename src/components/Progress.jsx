@@ -14,7 +14,7 @@ function Progress() {
         for(let i = 1; i <= state.progress.max; i++){
             const Icon = Icons[state.monsters[i - 1].icon];
 
-            marks.push(<div className="progress__mark z-20 text-2xl text-white bg-gray-500 border-solid border-2 border-gray-600" key={i} style={{left: i / state.progress.max * 100 + "%"}}><Icon/></div>);
+            marks.push(<div className="progress__mark z-20 text-2xl text-bg-gray-700 bg-gray-500 border-solid border-2 border-gray-600" key={i} style={{left: i / state.progress.max * 100 + "%"}}><Icon/></div>);
 
             console.log(marks);
         }
