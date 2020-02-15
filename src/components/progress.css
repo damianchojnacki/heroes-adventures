@@ -14,7 +14,7 @@
 }
 
 .progress__mark svg{
-  transform: rotate(45deg) translate(8px, 2px) ;
+  transform: rotate(45deg) translate(6px, 2px) ;
 }
 
 .progress__dot{
