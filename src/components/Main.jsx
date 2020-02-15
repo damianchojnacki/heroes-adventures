@@ -6,6 +6,7 @@ import 'animate.css';
 import {GameContext} from "../GameContext";
 import Monster from './Monster';
 import AttackIcon from './AttackIcon';
+import Progress from "./Progress";
 
 function Main(props) {
     const {state, dispatch} = React.useContext(GameContext);
@@ -61,7 +62,7 @@ function Main(props) {
                     <button className="z-20 text-2xl px-8 py-3 bg-blue-700 hover:bg-blue-800 rounded-lg text-white shadow" onClick={() => dispatch({type: "fightStart"})}>Walka</button>
                 }
             </div>
-            {/* TODO progress bar with boss icons */}
+            <Progress/>
         </>
     );
 }

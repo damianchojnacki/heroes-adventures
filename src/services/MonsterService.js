@@ -11,13 +11,25 @@ class MonsterService {
         }
     }
 
-    static getBoss() {
+    static getProgress() {
+        return {
+            current: this.getLevel(),
+            max: bosses.length,
+            percent: this.getLevel() / bosses.length * 100,
+        }
+    }
+
+    static getLevel(){
         !Memory.exist('boss') && Memory.save("boss", 1);
 
-        const stats = this.getStats(Memory.get("boss"));
+        return Memory.get("boss");
+    }
+
+    static getBoss() {
+        const level = this.getLevel();
 
         return {
-            ...stats,
+            ...this.getStats(level),
             ...bosses[Memory.get("boss") - 1]
         }
     }
@@ -32,6 +44,10 @@ class MonsterService {
         GoldService.add(this.calculateEarnings(current));
 
         Memory.increment("boss");
+    }
+
+    static all(){
+        return bosses;
     }
 }
 

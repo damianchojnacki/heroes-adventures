@@ -1,0 +1,28 @@
+.progress{
+  margin-bottom: .60rem;
+}
+
+.progress__mark{
+  transform: perspective(40px) rotateX(20deg) rotateZ(-45deg);
+  transform-origin: 50% 50%;
+  border-radius: 50% 50% 50% 0;
+  width: 2.25rem;
+  height: 2.25rem;
+  position: absolute;
+  bottom: 1.25rem;
+  margin-left: -1rem;
+}
+
+.progress__mark svg{
+  transform: rotate(45deg) translate(8px, 2px) ;
+}
+
+.progress__dot{
+  height: 12px;
+  width: 24px;
+  position: absolute;
+  transform: translateX(-40%);
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  bottom: 0;
+}

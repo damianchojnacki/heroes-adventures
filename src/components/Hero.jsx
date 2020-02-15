@@ -16,7 +16,7 @@ function Hero({hero}) {
     const [animation, setAnimation] = useState("");
 
     useEffect(() => {
-        state.fight.heroes && setAnimation("bg-red-300");
+        state.fight.heroes && hero.currentHealth !== hero.health && setAnimation("bg-red-300");
 
         setTimeout(() => setAnimation(""), 500);
     }, [hero.currentHealth]);

@@ -46,76 +46,71 @@
     },
     {
         "id": 10,
-        "name": "Kamienny golem",
-        "icon" : "GiRockGolem"
-    },
-    {
-        "id": 11,
         "name": "Lodowy golem",
         "icon" : "GiIceGolem"
     },
     {
-        "id": 12,
+        "id": 11,
         "name": "Minotaur",
         "icon" : "GiMinotaur"
     },
     {
-        "id": 13,
+        "id": 12,
         "name": "Imp",
         "icon" : "GiImp"
     },
     {
-        "id": 14,
+        "id": 13,
         "name": "Ifryt",
         "icon" : "GiIfrit"
     },
     {
-        "id": 15,
+        "id": 14,
         "name": "Demon",
         "icon" : "GiOni"
     },
     {
-        "id": 16,
+        "id": 15,
         "name": "Diaboł",
         "icon" : "GiDiabloSkull"
     },
     {
-        "id": 17,
+        "id": 16,
         "name": "Wiwerna",
         "icon" : "GiWyvern"
     },
     {
-        "id": 18,
+        "id": 17,
         "name": "Smok",
         "icon" : "GiDragonHead"
     },
     {
-        "id": 19,
+        "id": 18,
         "name": "Smokowiec",
         "icon" : "GiDoubleDragon"
     },
     {
-        "id": 20,
+        "id": 19,
         "name": "Hydra",
         "icon" : "GiHydra"
     },
     {
-        "id": 21,
+        "id": 20,
         "name": "Dragonoid",
         "icon" : "GiSpikedDragonHead"
     },
     {
-        "id": 22,
+        "id": 21,
         "name": "Żniwiarz",
         "icon" : "GiGrimReaper"
     },
     {
-        "id": 23,
+        "id": 22,
         "name": "Horus",
         "icon" : "GiHorus"
     },
     {
-        "id": 24,
+        "id": 23,
         "name": "Anubis",
         "icon" : "GiAnubis"
     }

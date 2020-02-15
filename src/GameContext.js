@@ -10,12 +10,14 @@ const GameContext = React.createContext();
 const initialState = {
     fight: {},
     heroes: HeroService.all(),
+    monsters: MonsterService.all(),
     gold: GoldService.get(),
+    progress: MonsterService.getProgress(),
 };
 
-const reducer = (state, action) => {
-    console.log(state);
+console.log(initialState);
 
+const reducer = (state, action) => {
     switch (action.type) {
         case "reset":
             return initialState;
@@ -45,6 +47,7 @@ const reducer = (state, action) => {
                     fight: {},
                     heroes: HeroService.all(),
                     gold:  GoldService.get(),
+                    progress: MonsterService.getProgress(),
                 };
             }
 

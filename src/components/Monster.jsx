@@ -29,7 +29,7 @@ function Monster() {
     return (
         <>
             <h1 className="mb-5 text-3xl md:text-5xl opacity">{monster.name}</h1>
-            <span className={`mb-5 text-lg text-red-600 animated faster ${damageAnimation} ${state.fight.lastHit === 0 && "invisible"}`}>-{state.fight.lastHit}</span>
+            <span className={`text-2xl text-red-600 animated faster ${damageAnimation} ${state.fight.lastHit === 0 && "invisible"}`}>-{state.fight.lastHit}</span>
             <Icon size="33vh" className={`animated faster ${monsterAnimation}`} />
             <div className="z-20 m-6 md:m-8 shadow bg-gray-100 overflow-hidden w-full">
                 <div 
