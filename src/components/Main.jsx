@@ -28,7 +28,7 @@ function Main(props) {
                             "opacity": 0.5
                         },
                         "line_linked": {
-                            "enable": true, 
+                            "enable": true,
                             "distance": 300,
                             "color": "#333333",
                             "opacity": 0.1,
@@ -43,18 +43,18 @@ function Main(props) {
                             }
                         }
                     },
-                }} 
+                }}
             />
             <div className="flex flex-col md:flex-row justify-around items-center h-full py-12">
-                {state.fight.monster ?
+                {state.fight ?
                     <>
                         <div className="flex flex-col justify-center items-center">
                             <Monster/>
                         </div>
                         <div className="z-20 text-center">
                             <h2 className="hidden md:block text-2xl">Wybierz bohatera</h2>
-                            {[<GiBroadsword/>, <GiHighShot/>, <GiMagicSwirl/>, <GiBangingGavel/>].map((icon, index) => 
-                                <AttackIcon {...props} icon={icon} index={index} key={index}/>     
+                            {[<GiBroadsword/>, <GiHighShot/>, <GiMagicSwirl/>, <GiBangingGavel/>].map((icon, index) =>
+                                <AttackIcon {...props} icon={icon} index={index} key={index}/>
                             )}
                         </div>
                     </>

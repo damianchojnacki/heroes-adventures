@@ -14,11 +14,32 @@ class HeroService {
 
         const hero = Memory.get(role);
 
+        hero.currentHealth = hero.currentHealth ?? hero.health;
+
         return {
             ...hero,
             ...variants[role][hero.level - 1],
-            upgradeCost: costs[role][hero.level - 1]
+            upgradeCost: costs[role][hero.level - 1],
+            healCost: Math.round(10 / (hero.currentHealth / hero.health) * hero.level),
         };
+    }
+
+    static heal(hero){
+        const newHero = this.getStatsAfterHeal(hero);
+        const previous = newHero.previous;
+        delete newHero.previous;
+
+        const actualGold = GoldService.sub(hero.healCost);
+
+        Memory.save(this.getRoleById(hero.id), newHero);
+
+        return {
+            hero: {
+                ...newHero,
+                previous: previous
+            },
+            gold: actualGold,
+        }
     }
 
     static upgrade(hero){
@@ -39,6 +60,18 @@ class HeroService {
         }
     }
 
+    static update(heroes){
+        heroes.map(hero => {
+            delete hero.icon;
+            delete hero.name;
+            delete hero.upgradeCost;
+
+            return hero;
+        });
+
+        heroes.map(hero => Memory.save(this.getRoleById(hero.id), hero));
+    }
+
     static getRoleById(id){
         return Object.keys(heroes).find(key => heroes[key].id === id);
     }
@@ -56,6 +89,13 @@ class HeroService {
                 defense: hero.defense
             },
         }
+    }
+
+    static getStatsAfterHeal(hero){
+        hero.currentHealth = hero.health;
+        hero.previous = {health: hero.currentHealth};
+
+        return hero;
     }
 }
 

@@ -11,20 +11,20 @@
     "level": 1,
     "health": 60,
     "strength": 12,
-    "defense": 5
+    "defense": 7
   },
   "mage": {
     "id": 3,
     "level": 1,
     "health": 40,
     "strength": 20,
-    "defense": 7
+    "defense": 5
   },
   "heavy": {
     "id": 4,
     "level": 1,
     "health": 140,
-    "strength": 10,
+    "strength": 8,
     "defense": 20
   }
 }

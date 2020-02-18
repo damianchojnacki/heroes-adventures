@@ -6,7 +6,7 @@ function Rules(){
 
     return (
         <>
-            <footer className="fixed z-40 bottom-0 left-0 m-5">
+            <footer className="fixed z-40 top-0 right-0 m-6 mt-4">
                 <button className="text-2xl text-gray-700 hover:text-gray-900" onClick={() => setToggle(!toggle)}>
                     <FaQuestionCircle/>
                 </button>
@@ -16,7 +16,7 @@ function Rules(){
                 className="absolute z-30 px-8 md:px-24 py-12 bg-gray-400 z-10 md:rounded-lg shadow-lg text-justify w-full md:w-3/4 lg:w-2/3 inset-0 md:inset-1/2 h-fit opacity-9 md:translate-1/2"
                 style={{display: toggle ? "block" : "none",}}
             >
-                <FaTimes size="1.5rem" className="absolute top-0 right-0 m-5 cursor-pointer text-gray-700 hover:text-gray-900" onClick={() => setToggle(!toggle)}/>
+                <FaTimes size="1.5rem" className="hidden md:block absolute top-0 right-0 m-5 cursor-pointer text-gray-700 hover:text-gray-900" onClick={() => setToggle(!toggle)}/>
                 <h2 className="text-2xl text-center mb-4">Zasady gry:</h2>
                 <ol className="list-decimal">
                     <li className="my-4">

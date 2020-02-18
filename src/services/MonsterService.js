@@ -6,8 +6,8 @@ class MonsterService {
     static getStats(level) {
         return {
             level: level,
-            health: 120 + 30 * (3 * (level + 1)),
-            strength: 12 + (7 * (level + 1)),
+            health: 20 * (3 * (level + 1)),
+            strength: 9 * (level + 1),
         }
     }
 
@@ -43,7 +43,7 @@ class MonsterService {
 
         GoldService.add(this.calculateEarnings(current));
 
-        Memory.increment("boss");
+        this.getLevel() && Memory.increment("boss");
     }
 
     static all(){

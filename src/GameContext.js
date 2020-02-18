@@ -8,7 +8,7 @@ import Fight from "./Fight";
 const GameContext = React.createContext();
 
 const initialState = {
-    fight: {},
+    fight: null,
     heroes: HeroService.all(),
     monsters: MonsterService.all(),
     gold: GoldService.get(),
@@ -36,15 +36,25 @@ const reducer = (state, action) => {
                 heroes: {[action.payload.id - 1]: {$set: afterUpgrade.hero}},
                 gold: {$set: afterUpgrade.gold}
             });
+        case "heroHeal":
+            const afterHeal = HeroService.heal(action.payload);
+
+            return update(state, {
+                heroes: {[action.payload.id - 1]: {$set: afterHeal.hero}},
+                gold: {$set: afterHeal.gold}
+            });
         case "hit":
             const nextRound = state.fight.hit(action.payload);
 
             if(nextRound.end){
-                if(nextRound.won) MonsterService.next();
+                if(nextRound.won){
+                    MonsterService.next();
+                    HeroService.update(state.fight.heroes);
+                }
 
                 return {
                     ...state,
-                    fight: {},
+                    fight: null,
                     heroes: HeroService.all(),
                     gold:  GoldService.get(),
                     progress: MonsterService.getProgress(),

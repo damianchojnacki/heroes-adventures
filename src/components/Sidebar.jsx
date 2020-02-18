@@ -8,7 +8,7 @@ import {GameContext} from "../GameContext";
 function Sidebar() {
     const {state} = React.useContext(GameContext);
 
-    const heroes = state.fight.heroes ? state.fight.heroes : state.heroes;
+    const heroes = state.fight ? state.fight.heroes : state.heroes;
 
     return (
         <>
