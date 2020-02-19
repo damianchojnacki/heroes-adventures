@@ -7,7 +7,7 @@ class MonsterService {
         return {
             level: level,
             health: 20 * (3 * (level + 1)),
-            strength: 9 * (level + 1),
+            strength: 7 * (level + 1),
         }
     }
 
