@@ -18,13 +18,15 @@ function AttackIcon(props){
     function hit(){
         dispatch({type: "hit", payload: props.index});
 
-        dead && setAnimation("animated bounceIn faster");
+        !dead && setAnimation("animated bounceIn faster");
 
-        setTimeout(() => setAnimation(null), 500);
+        const timeout = setTimeout(() => setAnimation(""), 500);
+
+        return () => clearTimeout(timeout);
     }
 
     return (
-        <div className="inline-block md:block relative mx-6 my-2 md:my-5 md:mx-auto text-6xl md:text-5xl">
+        <div className="inline-block md:block relative mx-6 my-1 md:my-5 md:mx-auto text-6xl md:text-5xl">
             <button
                 className={`bg-gray-200 p-2 pb-3 md:pb-2 rounded shadow flipX animated ${dead ? "grayscale text-gray-400" : "hover:bg-gray-300"}`}
                 onClick={() => hit()}

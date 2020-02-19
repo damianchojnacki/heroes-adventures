@@ -21,9 +21,8 @@ function Progress() {
     }
 
     return (
-        <div className="md:absolute md:bottom-0 mt-6 md:mt-0 animate" style={{width: state.progress.max * 100 + "px", transform: `translateX(${-state.progress.percent / 1.5 + 1  + "%"})`}}>
-            <div className="absolute w-1/12 bg-gray-500 py-1 bottom-0"/>
-            <div className="z-10 w-11/12 relative ml-8">
+        <div className="md:absolute md:bottom-0 mt-6 md:mt-0 animate" style={{width: state.progress.max * 100 + "px", transform: `translateX(${-state.progress.percent / 1.4 + 1  + "%"})`}}>
+            <div className="z-10 w-full relative">
                 <span className="z-30 progress__dot bg-gray-700 shadow" style={{left: state.progress.percent + "%"}}/>
                 <div className="progress z-20">
                     {createMarks()}
@@ -35,7 +34,6 @@ function Progress() {
                     />
                 </div>
             </div>
-            <div className="absolute w-1/12 bg-gray-400 py-1 bottom-0 right-0"/>
         </div>
     );
 }

@@ -19,17 +19,22 @@ function Monster() {
     useEffect(() => {
         monster.currentHealth < monster.health && setMonsterAnimation("text-red-700 rubberBand");
 
-        setTimeout(() => setMonsterAnimation(""), 500);
+        const monsterTimeout = setTimeout(() => setMonsterAnimation(""), 500);
 
         monster.currentHealth < monster.health && setDamageAnimation("zoomInDown");
 
-        setTimeout(() => setDamageAnimation("zoomOutUp"), 500);
+        const damageTimeout = setTimeout(() => setDamageAnimation("zoomOutUp"), 500);
+
+        return () => {
+            clearTimeout(monsterTimeout);
+            clearTimeout(damageTimeout);
+        }
     }, [monster.currentHealth]);
 
     return (
         <>
-            <h1 className="mb-5 text-3xl md:text-5xl opacity">{monster.name}</h1>
-            <span className={`text-2xl text-red-600 animated faster ${damageAnimation} ${state.fight.lastHit === 0 && "invisible"}`}>-{state.fight.lastHit}</span>
+            <h1 className="text-3xl md:text-5xl opacity">{monster.name}</h1>
+            <span className={`-mb-6 text-2xl text-red-600 animated faster ${damageAnimation} ${state.fight.lastHit === 0 && "invisible"}`}>-{state.fight.lastHit}</span>
             <Icon size="33vh" className={`z-10 animated faster ${monsterAnimation}`} />
             <div className="z-20 m-6 md:m-8 shadow bg-gray-100 overflow-hidden w-full">
                 <div

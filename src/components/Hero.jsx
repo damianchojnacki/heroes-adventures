@@ -5,10 +5,10 @@ import CountUp from 'react-countup';
 import 'animate.css';
 
 import {GameContext} from "../GameContext";
-import HeroService from "../services/HeroService";
 
 function Hero({hero}) {
     const {state, dispatch} = React.useContext(GameContext);
+    const [mounted, setMounted] = useState(false);
 
     const Icon = Icons[hero.icon];
 
@@ -21,7 +21,9 @@ function Hero({hero}) {
     useEffect(() => {
         state.fight && hero.currentHealth !== hero.health && setAnimation("bg-red-300");
 
-        setTimeout(() => setAnimation(""), 500);
+        const timeout = setTimeout(() => setAnimation(""), 500);
+
+        return () => clearTimeout(timeout);
     }, [hero.currentHealth]);
 
     return (

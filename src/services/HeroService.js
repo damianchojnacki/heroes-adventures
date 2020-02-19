@@ -15,14 +15,14 @@ class HeroService {
         const hero = Memory.get(role);
 
         hero.currentHealth = hero.currentHealth ?? hero.health;
-        
-        const absolute = hero.currentHealth > 0 ? hero.currenHealth : 1;
+
+        const absolute = hero.currentHealth > 0 ? hero.currentHealth : 1;
 
         return {
             ...hero,
             ...variants[role][hero.level - 1],
             upgradeCost: costs[role][hero.level - 1],
-            healCost: Math.round(10 / (absolute / hero.health) * hero.level),
+            healCost: Math.round(Math.sqrt(10 / (absolute / hero.health) * hero.level)),
         };
     }
 
@@ -83,8 +83,8 @@ class HeroService {
             id: hero.id,
             level: hero.level + 1,
             health: hero.health * (hero.level + 1),
-            strength: hero.strength * hero.level,
-            defense: hero.defense * hero.level,
+            strength: hero.strength * (hero.level + 1),
+            defense: hero.defense * (hero.level + 1),
             previous: {
                 health: hero.health,
                 strength: hero.strength,

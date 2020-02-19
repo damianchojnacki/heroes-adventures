@@ -1,7 +1,7 @@
 class Fight {
     heroes = {};
     monster = {};
-    round = 0;
+    round = 1;
     end = false;
     won = false;
     lastHit = 0;
@@ -19,7 +19,7 @@ class Fight {
 
         const hit = Math.ceil(strength + additionalDamage - defense);
 
-        this.lastHit = (this.round !== 0 && this.round % 2 === 0) ? this.lastHit : hit;
+        this.lastHit = (this.round % 2 === 0) ? this.lastHit : hit;
 
         return hit;
     }
@@ -35,7 +35,7 @@ class Fight {
             randomHero = Math.round(Math.random() * 3);
         } while(!this.isAlive(this.heroes[randomHero]));
 
-        if(this.round !== 0 &&  this.round % 2 === 0)
+        if(this.round % 2 === 0)
             this.heroes[randomHero].currentHealth -= this.calculateHit(this.monster.strength, this.heroes[randomHero].currentDefense);
         else
             this.monster.currentHealth -= this.calculateHit(this.heroes[index].strength, 0, this.heroes[index].level);
@@ -57,7 +57,7 @@ class Fight {
 
         this.round++;
 
-        return this.round % 2 === 0 ? this.hit() : this;
+        return (this.round % 2 === 0 && !this.end) ? this.hit() : this;
     }
 }
 
