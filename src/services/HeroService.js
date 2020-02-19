@@ -15,12 +15,14 @@ class HeroService {
         const hero = Memory.get(role);
 
         hero.currentHealth = hero.currentHealth ?? hero.health;
+        
+        const absolute = hero.currentHealth > 0 ? hero.currenHealth : 1;
 
         return {
             ...hero,
             ...variants[role][hero.level - 1],
             upgradeCost: costs[role][hero.level - 1],
-            healCost: Math.round(10 / (hero.currentHealth / hero.health) * hero.level),
+            healCost: Math.round(10 / (absolute / hero.health) * hero.level),
         };
     }
 
