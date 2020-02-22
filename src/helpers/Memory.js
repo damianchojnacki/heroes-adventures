@@ -20,6 +20,10 @@ class Memory{
     static exist(name){
         return !!localStorage.getItem(name);
     }
+
+    static remove(name){
+        localStorage.removeItem(name);
+    }
 }
 
 export default Memory;

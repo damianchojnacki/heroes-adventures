@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {GiBroadsword, GiHighShot, GiMagicSwirl, GiBangingGavel} from "react-icons/gi";
 import Particles from 'react-particles-js';
 import 'animate.css';
@@ -10,6 +10,8 @@ import Progress from "./Progress";
 
 function Main(props) {
     const {state, dispatch} = React.useContext(GameContext);
+
+    useEffect(() => dispatch({type: "init"}), [dispatch]);
 
     return (
         <>

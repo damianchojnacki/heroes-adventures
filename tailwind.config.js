@@ -9,6 +9,7 @@ module.exports = {
     extend: {
       inset: {
         '1/2': '50%',
+        'full': '100%',
       },
       height: {
         "fit": "fit-content",

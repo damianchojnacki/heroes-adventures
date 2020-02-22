@@ -6,8 +6,8 @@ class MonsterService {
     static getStats(level) {
         return {
             level: level,
-            health: 20 * (3 * (level + 1)),
-            strength: 7 * (level + 1),
+            health: 15 * (3 * (level + 1)),
+            strength: 6 * Math.sqrt(level + 1),
         }
     }
 
