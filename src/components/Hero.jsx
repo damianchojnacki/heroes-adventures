@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import * as Icons from 'react-icons/gi';
-import {FaFistRaised, FaHeart, FaShieldAlt} from 'react-icons/fa';
+import {FaFistRaised, FaHeart, FaShieldAlt, FaAngleDoubleUp} from 'react-icons/fa';
 import CountUp from 'react-countup';
 import 'animate.css';
 
@@ -33,14 +33,14 @@ function Hero({hero, toggled}) {
                         className="absolute z-10 top-0 w-full h-full bg-gray-800 hover:bg-gray-900 opacity-75 flex justify-center items-center text-red-700 cursor-pointer uppercase font-bold tracking-widest animated zoomIn"
                         onClick={() => dispatch({type: "heroHeal", payload: hero})}
                     >
-                        Opatrz rany
+                        {toggled ? <FaHeart size="3rem"/> : "Opatrz rany"}
                     </div>
                 : !state.fight && state.gold >= hero.upgradeCost &&
                     <div
                         className="absolute z-10 top-0 w-full h-full bg-gray-800 hover:bg-gray-900 opacity-75 flex justify-center items-center text-yellow-500 cursor-pointer uppercase font-bold tracking-widest animated zoomIn"
                         onClick={() => dispatch({type: "heroUpgrade", payload: hero})}
                     >
-                        Awansuj
+                        {toggled ? <FaAngleDoubleUp size="3rem"/> : "Awansuj"}
                     </div>
             }
             <div className={`my-5 md:my-8 rounded shadow-md bg-white animated zoomIn animate ${animation} ${dead && "grayscale bg-gray-300"}`}>
