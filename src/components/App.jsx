@@ -13,7 +13,7 @@ function App() {
     return (
         <GameContextProvider>
             <main className="lg:flex lg:h-screen overflow-hidden">
-                <span className="absolute m-2 text-gray-500 text-sm">alpha release</span>
+                <span className="absolute m-2 text-gray-500 text-sm">beta release</span>
                 <div className={`${toggleSidebar ? "lg:w-5/6 xl:w-11/12" : "lg:w-3/5 xl:w-2/3"} lg:h-full relative animate`}>
                     <Main />
                 </div>
