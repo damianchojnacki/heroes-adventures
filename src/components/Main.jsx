@@ -56,7 +56,7 @@ function Main(props) {
                         <div className="z-20 text-center">
                             <h2 className="hidden md:block text-2xl">Wybierz bohatera</h2>
                             {[<GiBroadsword/>, <GiHighShot/>, <GiMagicSwirl/>, <GiBangingGavel/>].map((icon, index) =>
-                                <AttackIcon {...props} icon={icon} index={index} key={index}/>
+                                state.heroes[index] && <AttackIcon {...props} icon={icon} index={index} key={index}/>
                             )}
                         </div>
                     </>

@@ -6,8 +6,8 @@ class MonsterService {
     static getStats(level) {
         return {
             level: level,
-            health: 15 * (3 * (level + 1)),
-            strength: 6 * Math.sqrt(level + 1),
+            health: 15 * (3 * (level + 1)) - 50,
+            strength: 3 * Math.sqrt(level + 1),
         }
     }
 
@@ -35,7 +35,7 @@ class MonsterService {
     }
 
     static calculateEarnings(monster){
-        return Math.round(parseInt(monster.health) / 9 + parseInt(monster.strength) * 3);
+        return Math.round(monster.health / 6 + monster.strength * 3);
     }
 
     static next() {

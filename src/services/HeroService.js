@@ -3,10 +3,16 @@ import variants from '../json/variants';
 import costs from '../json/costs';
 import heroes from '../json/heroes';
 import Memory from "../helpers/Memory";
+import MonsterService from "./MonsterService";
 
 class HeroService {
     static all(){
-        return [this.get("warrior"), this.get("ranger"), this.get("mage"), this.get("heavy")];
+        const heroes = [this.get("warrior"), this.get("ranger")];
+
+        if(MonsterService.getLevel() > 7) heroes.push(this.get("mage"));
+        if(MonsterService.getLevel() > 12) heroes.push(this.get("heavy"));
+
+        return heroes;
     }
 
     static get(role){
@@ -22,7 +28,7 @@ class HeroService {
             ...hero,
             ...variants[role][hero.level - 1],
             upgradeCost: costs[role][hero.level - 1],
-            healCost: Math.round(Math.sqrt(10 / (absolute / hero.health)) * hero.level + 1),
+            healCost: Math.round(Math.sqrt(10 / (absolute / hero.health)) * hero.level),
         };
     }
 
@@ -84,7 +90,7 @@ class HeroService {
             level: hero.level + 1,
             health: hero.health * (hero.level + 1),
             strength: hero.strength * (hero.level + 1),
-            defense: hero.defense * (hero.level + 1),
+            defense: (hero.defense * (hero.level + 1)) / 2,
             previous: {
                 health: hero.health,
                 strength: hero.strength,

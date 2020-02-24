@@ -25,7 +25,7 @@ class Fight {
     }
 
     isAlive(hero){
-        return hero.currentHealth >= 0;
+        return hero && hero.currentHealth >= 0;
     }
 
     hit(index){
@@ -46,10 +46,10 @@ class Fight {
         }
 
         if(
-            this.heroes[0].currentHealth <= 0 &&
-            this.heroes[1].currentHealth <= 0 &&
-            this.heroes[2].currentHealth <= 0 &&
-            this.heroes[3].currentHealth <= 0
+            !this.isAlive(this.heroes[0]) &&
+            !this.isAlive(this.heroes[1]) &&
+            !this.isAlive(this.heroes[2]) &&
+            !this.isAlive(this.heroes[3])
         ){
             this.end = true;
             this.won = false;
