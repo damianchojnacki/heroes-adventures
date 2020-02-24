@@ -45,7 +45,7 @@ function Hero({hero, toggled}) {
             }
             <div className={`my-5 md:my-8 rounded shadow-md bg-white animated zoomIn animate ${animation} ${dead && "grayscale bg-gray-300"}`}>
                 <div className="px-8 py-4 items-center flex flex-wrap lg:flex-no-wrap justify-center lg:justify-between">
-                    <span className={`${toggled && "flex justify-center w-full"} text-5xl mr-8`}>
+                    <span className={`${toggled ? "flex justify-center w-full" : "mr-8"} text-5xl`}>
                         <Icon/>
                     </span>
                     {!toggled &&
