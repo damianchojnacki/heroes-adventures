@@ -2,29 +2,29 @@
   "warrior": {
     "id": 1,
     "level": 1,
-    "health": 80,
+    "health": 70,
     "strength": 9,
     "defense": 10
   },
   "ranger": {
     "id": 2,
     "level": 1,
-    "health": 60,
+    "health": 50,
     "strength": 12,
     "defense": 7
   },
   "mage": {
     "id": 3,
     "level": 1,
-    "health": 40,
-    "strength": 20,
+    "health": 80,
+    "strength": 30,
     "defense": 5
   },
   "heavy": {
     "id": 4,
     "level": 1,
-    "health": 140,
-    "strength": 8,
+    "health": 200,
+    "strength": 16,
     "defense": 20
   }
 }

@@ -32,7 +32,7 @@ class Fight {
         let randomHero = 0;
 
         do{
-            randomHero = Math.round(Math.random() * 3);
+            randomHero = Math.round(Math.random() * this.heroes.length);
         } while(!this.isAlive(this.heroes[randomHero]));
 
         if(this.round % 2 === 0)
