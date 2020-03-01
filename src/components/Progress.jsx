@@ -1,5 +1,6 @@
 import React from 'react';
 import * as Icons from 'react-icons/gi';
+import {FaCheckCircle} from 'react-icons/fa';
 import 'animate.css';
 
 import {GameContext} from "../GameContext";
@@ -14,7 +15,7 @@ function Progress() {
         for(let i = 1; i <= state.progress.max; i++){
             const Icon = Icons[state.monsters[i - 1].icon];
 
-            marks.push(<div className={`progress__mark z-20 text-2xl text-bg-gray-700 bg-gray-500 border-solid border-2 border-gray-600 ${i === state.progress.current && "bg-blue-700 text-white"}`} key={i} style={{left: i / state.progress.max * 100 + "%"}}><Icon/></div>);
+            marks.push(<div className={`progress__mark z-20 text-2xl text-bg-gray-700 bg-gray-500 border-solid border-2 border-gray-600 ${i === state.progress.current ? "bg-blue-700 text-white" : i < state.progress.current && "text-green-700"}`} key={i} style={{left: i / state.progress.max * 100 + "%"}}>{i >= state.progress.current ? <Icon/> : <FaCheckCircle/>}</div>);
         }
 
         return marks;
