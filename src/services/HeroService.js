@@ -28,7 +28,7 @@ class HeroService {
             ...hero,
             ...variants[role][hero.level - 1],
             upgradeCost: costs[role][hero.level - 1],
-            healCost: Math.round(Math.sqrt(10 / (absolute / hero.health)) * hero.level),
+            healCost: Math.round(Math.sqrt(10 / (absolute / hero.health))),
         };
     }
 

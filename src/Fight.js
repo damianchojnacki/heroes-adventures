@@ -25,14 +25,14 @@ class Fight {
     }
 
     isAlive(hero){
-        return hero && hero.currentHealth >= 0;
+        return hero ? hero.currentHealth >= 0 : false;
     }
 
     hit(index){
         let randomHero = 0;
 
         do{
-            randomHero = Math.round(Math.random() * this.heroes.length);
+            randomHero = Math.round(Math.random() * (this.heroes.length - 1));
         } while(!this.isAlive(this.heroes[randomHero]));
 
         if(this.round % 2 === 0)
