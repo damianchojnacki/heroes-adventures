@@ -1,4 +1,4 @@
-#heroes-adventures
+heroes-adventures
 
 Simple react-based web game. Currently in beta it is 100% client-side project.
 
