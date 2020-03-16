@@ -2,6 +2,10 @@
 
 Simple react-based web game. Currently in beta it is 100% client-side project.
 
+
+### Live
+https://heroes-adventures.herokuapp.com
+
 ## Installation
 Clone repository and execute:
 
